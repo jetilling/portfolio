@@ -1,0 +1,24 @@
+Name 'main';
+
+State {
+  Eq clickCount 0;
+};
+
+Do {
+  
+  updateCount (message) [
+    Jetlog message;
+    Add clickCount 1;
+    Update State clickCount;
+  ];
+
+};
+
+View {
+  Div () [
+    Button ( Eq Click updateCount message; ) [ Eq Text 'Click me!'; ];
+    Span () [ Eq Text State clickCount; ]
+  ]
+};
+
+Attach 'root';
